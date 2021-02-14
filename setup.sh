@@ -19,3 +19,7 @@ read -p "Please enter your 2-letter country code [e.g. US, DE, NL, ...]: " COUNT
 sudo openssl req -x509 -nodes -days 10000 -newkey rsa:2048 -subj "/C=$COUNTRY/CN=$HOST" -addext "subjectAltName = DNS:$HO$
 echo "Last step! This may take up to 15 minutes on older Pi!"
 sudo openssl dhparam -out nginx/certs/dhparam.pem 2048
+echo "Ok, now this is really the last step. Downloading and starting OctoPrint and nginx"
+sudo docker-compose up -d
+echo "READY! Open https://$HOST in your browser! " 
+echo "Everything starts automatically after your Pi boots!"
