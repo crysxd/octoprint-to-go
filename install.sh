@@ -29,4 +29,4 @@ echo
 echo
 echo
 echo
-./install.sh
+./setup.sh
