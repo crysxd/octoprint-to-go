@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+
+  octoprint:
+    image: octoprint/octoprint:latest
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    volumes:
+      - ./data:/octoprint
+      - /dev:/dev
+    privileged: true
+
+  reverse:
+    container_name: reverse
+    hostname: reverse
+    image: nginx
+    links:
+     - octoprint
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx:/etc/nginx/
