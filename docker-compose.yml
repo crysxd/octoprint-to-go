@@ -4,9 +4,7 @@ services:
 
   octoprint:
     image: octoprint/octoprint:latest
-    ports:
-      - "5000:5000"
-    restart: unless-stopped
+    restart: always
     volumes:
       - ./data:/octoprint
       - /dev:/dev
@@ -20,5 +18,12 @@ services:
      - octoprint
     ports:
       - 80:80
+    restart: always
     volumes:
       - ./nginx:/etc/nginx/
+
+  noip:
+    image: hypriot/rpi-noip
+    restart: "always"
+    volumes:
+      - ./noip:/usr/local/etc/
