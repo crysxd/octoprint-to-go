@@ -1,29 +1,28 @@
-version: '3'
+version: "3"
 
-services:
-
-  octoprint:
-    image: octoprint/octoprint:latest
+services: 
+  noip: 
+    image: hypriot/rpi-noip
     restart: always
-    volumes:
-      - ./data:/octoprint
-      - /dev:/dev
+    volumes: 
+      - "./noip:/usr/local/etc/"
+  octoprint: 
+    image: "octoprint/octoprint:latest"
     privileged: true
-
-  reverse:
+    restart: always
+    volumes: 
+      - "./data:/octoprint"
+      - "/dev:/dev"
+  reverse: 
     container_name: reverse
     hostname: reverse
     image: nginx
-    links:
-     - octoprint
-    ports:
-      - 80:80
+    links: 
+      - octoprint
+    ports: 
+      - "80:80"
+      - "443:443"
     restart: always
-    volumes:
-      - ./nginx:/etc/nginx/
+    volumes: 
+      - "./nginx:/etc/nginx/"
 
-  noip:
-    image: hypriot/rpi-noip
-    restart: "always"
-    volumes:
-      - ./noip:/usr/local/etc/
