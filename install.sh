@@ -20,11 +20,11 @@ sudo pip3 -v install docker-compose
 echo
 echo
 echo
-echo 
+echo
 echo "Let's setup Docker Compose to run OctoPrint!"
 cd ~
-git clone .....
-cd octoprint-all-in-one
+git clone https://github.com/crysxd/octoprint-to-go/tree/master/nginx
+cd octoprint-to-go
 echo
 echo
 echo
