@@ -1,3 +1,4 @@
 data/
 noip/
 nginx/certs/
+nginx/.htpasswd
