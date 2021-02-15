@@ -23,7 +23,7 @@ echo
 echo
 echo "Let's setup Docker Compose to run OctoPrint!"
 cd ~
-git clone https://github.com/crysxd/octoprint-to-go/tree/master/nginx
+git clone https://github.com/crysxd/octoprint-to-go/
 cd octoprint-to-go
 echo
 echo
